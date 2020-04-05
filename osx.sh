@@ -28,6 +28,16 @@
     ln -s $(pwd)/lucent.osx.zsh ${HOME}/.zshrc
 }
 
+[ $(read_yn "Install useful tools") == "Y" ] && {
+	brew install tldr
+	brew install tree
+	brew install htop
+	brew install fzf
+	$(brew --prefix)/opt/fzf/install
+	brew install ripgrep
+	brew install path-extractor
+}
+
 [ $(read_yn "Install Pyenv") == "Y" ] && {
     curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
     git clone git://github.com/andersoncardoso/pyenv-autoenv.git ${HOME}/.pyenv/plugins/pyenv-autoenv
